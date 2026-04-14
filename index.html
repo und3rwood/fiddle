@@ -3,335 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiddle Lessons with Kai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <title>KAI FIDDLE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --cream: #F5EFE0;
-            --parchment: #EDE3CC;
-            --warm-brown: #7A4F2E;
-            --deep-brown: #3E2309;
-            --rust: #B5541E;
-            --gold: #C4923A;
-            --sage: #6B7B5E;
-            --light-sage: #C8D4BA;
-            --text: #2E1A0A;
-            --text-muted: #6B5240;
+            --bg: #FFFFFF;
+            --text: #000000;
+            --accent: #000000;
         }
 
-        html { scroll-behavior: smooth; }
-
         body {
-            background: var(--cream);
+            background: var(--bg);
             color: var(--text);
-            font-family: 'Lora', Georgia, serif;
-            font-size: 17px;
-            line-height: 1.75;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.2;
             overflow-x: hidden;
         }
 
-        /* Texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.6;
-        }
-
-        /* NAV */
+        /* BRUTALIST NAV */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 1.1rem 3rem;
-            background: rgba(245, 239, 224, 0.92);
-            border-bottom: 1px solid var(--parchment);
-            backdrop-filter: blur(6px);
+            padding: 1.5rem;
+            background: var(--bg);
+            border-bottom: 4px solid var(--text);
         }
 
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--deep-brown);
-            text-decoration: none;
-            letter-spacing: 0.01em;
-        }
+        .nav-logo { font-weight: 900; text-transform: uppercase; text-decoration: none; color: var(--text); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { font-weight: 900; text-transform: uppercase; text-decoration: none; color: var(--text); }
 
-        .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-        .nav-links a {
-            font-family: 'Lora', serif;
-            font-size: 0.88rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--rust); }
-
-        /* HERO */
+        /* HERO - 50% HEIGHT, BIG TEXT */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 7rem 2rem 5rem;
-            position: relative;
-        }
-
-        .hero-rule {
+            height: 50vh;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            padding: 0 1.5rem;
+            border-bottom: 4px solid var(--text);
+            margin-top: 60px;
         }
-        .hero-rule span { font-size: 1.4rem; color: var(--gold); }
-        .hero-rule hr { width: 60px; border: none; border-top: 1.5px solid var(--gold); opacity: 0.6; }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6.5rem);
-            font-weight: 700;
-            line-height: 1.05;
-            color: var(--deep-brown);
-            letter-spacing: -0.02em;
-            margin-bottom: 0.3em;
+            font-size: clamp(3rem, 12vw, 10rem);
+            font-weight: 900;
+            line-height: 0.85;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
         }
 
-        h1 em { font-style: italic; color: var(--rust); }
-
-        .hero-sub {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 460px;
-            margin: 0 auto 2.5rem;
-            font-style: italic;
+        /* CONTENT SECTIONS */
+        section {
+            padding: 4rem 1.5rem;
+            border-bottom: 4px solid var(--text);
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* LESSON CARDS - HARD EDGES */
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border: 4px solid var(--text);
+        }
+
+        .lesson-card {
+            padding: 2rem;
+            border-right: 4px solid var(--text);
+        }
+
+        .lesson-card:last-child { border-right: none; }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+
+        /* BUTTONS */
         .btn {
             display: inline-block;
-            background: var(--rust);
-            color: #F5EFE0;
-            font-family: 'Lora', serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
+            background: var(--text);
+            color: var(--bg);
+            padding: 1.5rem 3rem;
+            font-weight: 900;
             text-transform: uppercase;
             text-decoration: none;
-            padding: 0.85rem 2.4rem;
             border: none;
             cursor: pointer;
-            transition: background 0.2s, transform 0.15s;
         }
-        .btn:hover { background: var(--warm-brown); transform: translateY(-1px); }
 
-        .scroll-motif {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            opacity: 0.6;
-            animation: bobble 2.4s ease-in-out infinite;
-        }
-        .scroll-motif::after { content: ''; display: block; width: 1px; height: 36px; background: var(--gold); opacity: 0.6; }
-        @keyframes bobble { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+        .btn:hover { background: #333; }
 
-        section { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 6rem 2.5rem; }
-
-        .section-label { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-
-        h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--deep-brown); line-height: 1.15; margin-bottom: 1.5rem; }
-
-        .divider { text-align: center; color: var(--gold); font-size: 1.3rem; opacity: 0.5; letter-spacing: 0.5em; margin: 4rem 0; }
-
-        /* ABOUT */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-        .about-image-wrap { position: relative; }
-        .about-image-placeholder {
+        /* FORM */
+        input, select, textarea {
             width: 100%;
-            aspect-ratio: 3/4;
-            background: var(--parchment);
-            border: 2px solid var(--warm-brown);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            color: var(--text-muted);
-            font-style: italic;
-            font-size: 0.95rem;
+            border: 4px solid var(--text);
+            padding: 1rem;
+            font-family: inherit;
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
         }
-        .about-image-wrap::before { content: ''; position: absolute; top: 14px; left: -14px; right: 14px; bottom: -14px; border: 1.5px solid var(--light-sage); z-index: -1; }
-        .about-text p { color: var(--text-muted); margin-bottom: 1rem; }
 
-        /* LESSONS */
-        #lessons { background: var(--parchment); max-width: 100%; padding: 6rem 2.5rem; }
-        #lessons .inner { max-width: 1000px; margin: 0 auto; }
-        .lessons-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 800px; }
-        .lesson-card { background: var(--cream); border: 1px solid #D4C5A5; padding: 2.5rem 2rem; transition: transform 0.3s ease; }
-        .lesson-card:hover { transform: translateY(-5px); }
-        .lesson-card .badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--light-sage); color: var(--sage); padding: 0.3rem 0.75rem; margin-bottom: 1rem; }
-        .lesson-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep-brown); margin-bottom: 0.6rem; }
-        .lesson-card .price { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--rust); margin-top: 1rem; }
-        .lesson-card ul { list-style: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #D4C5A5; font-size: 0.95rem; }
-        .lesson-card ul li { position: relative; padding-left: 1.2rem; margin-bottom: 0.5rem; color: var(--text-muted); }
-        .lesson-card ul li::before { content: '–'; position: absolute; left: 0; color: var(--gold); }
-        .featured-card { border: 2px solid var(--rust); background: #FFFDF7; }
-        .featured-card .badge { background: var(--rust); color: var(--cream); }
-
-        /* CONTACT */
-        .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; }
-        form { display: flex; flex-direction: column; gap: 1.2rem; }
-        label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; }
-        input, textarea, select { width: 100%; background: var(--parchment); border: 1px solid #C8B99A; padding: 0.8rem; font-family: 'Lora', serif; outline: none; }
-        input:focus, textarea:focus, select:focus { border-color: var(--rust); }
-        footer { background: var(--deep-brown); color: #B89E7E; padding: 3rem; text-align: center; font-size: 0.85rem; }
-        footer a { color: var(--gold); text-decoration: none; }
-
-        @media (max-width: 760px) {
-            .about-grid, .contact-layout, .lessons-grid { grid-template-columns: 1fr; }
-            nav { padding: 1rem; }
-            .nav-links { display: none; }
+        @media (max-width: 768px) {
+            .grid, .lessons-grid { grid-template-columns: 1fr; }
+            .lesson-card { border-right: none; border-bottom: 4px solid var(--text); }
+            .lesson-card:last-child { border-bottom: none; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a class="nav-logo" href="#">Kai · Fiddle</a>
+    <a class="nav-logo" href="#">KAI // FIDDLE</a>
     <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#lessons">Lessons</a></li>
-        <li><a href="#contact">Book</a></li>
+        <li><a href="#lessons">COST</a></li>
+        <li><a href="#contact">BOOK</a></li>
     </ul>
 </nav>
 
 <div class="hero">
-    <div class="hero-rule"><hr><span>&#9834;</span><hr></div>
-    <h1>Come learn<br><em>fiddle</em><br>with me, twin.</h1>
-    <p class="hero-sub">🌹 I'll teach you for cheap.</p>
-    <a href="#contact" class="btn">Let's do it</a>
-    <div class="scroll-motif">scroll</div>
+    <h1>COME LEARN FIDDLE<br>WITH ME TWIN</h1>
 </div>
 
-<div class="divider">&#8901; &#8901; &#8901;</div>
-
-<section id="about">
-    <div class="about-grid">
-        <div class="about-image-wrap">
-            <div class="about-image-placeholder">
-                <svg viewBox="0 0 80 80" width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="40" cy="50" rx="16" ry="22" stroke="#7A4F2E" stroke-width="2"/>
-                    <line x1="40" y1="28" x2="40" y2="8" stroke="#7A4F2E" stroke-width="2"/>
-                </svg>
-                <span>Your photo here</span>
-            </div>
-        </div>
-        <div class="about-text">
-            <p class="section-label">About</p>
-            <h2>Precise. Cheap. Honest.</h2>
+<section id="philosophy">
+    <div class="grid">
+        <h2>THE METHOD</h2>
+        <div>
             <p>Most people have never been taught how to listen. Probably nobody has bothered. That's what we fix first.</p>
-            <p>I teach ear training over note reading — sheet music and tabs are crutches. I follow Lecoq de Boeurdain and Zhu Xi on mastery learning.</p>
+            <p>Sheet music and tabs are crutches. We learned to speak by ear; we learn to play the same way. One thing at a time.</p>
+            <p><strong>Pay attention to what you hear.</strong></p>
         </div>
     </div>
 </section>
 
 <section id="lessons">
-    <div class="inner">
-        <p class="section-label">Lessons & pricing</p>
-        <h2>Two options. Keep it simple.</h2>
-        <div class="lessons-grid">
-            <div class="lesson-card">
-                <span class="badge">First time</span>
-                <h3>Trial Lesson</h3>
-                <div class="price">$35</div>
-                <ul>
-                    <li>Posture & ear basics</li>
-                    <li>First tune by ear</li>
-                    <li>45 minutes</li>
-                </ul>
-            </div>
-            <div class="lesson-card featured-card">
-                <span class="badge">Ongoing</span>
-                <h3>Private Lesson</h3>
-                <div class="price">$65</div>
-                <ul>
-                    <li>Any level, any style</li>
-                    <li>Mastery-based pace</li>
-                    <li>1 hour duration</li>
-                </ul>
-            </div>
+    <h2>PRICING</h2>
+    <div class="lessons-grid">
+        <div class="lesson-card">
+            <h3>TRIAL</h3>
+            <div class="price">$35</div>
+            <p>45 MINUTES. WE LEARN ONE TUNE BY EAR.</p>
+        </div>
+        <div class="lesson-card">
+            <h3>PRIVATE</h3>
+            <div class="price">$65</div>
+            <p>PER HOUR. OLYMPIA WA ONLY.</p>
         </div>
     </div>
 </section>
 
 <section id="contact">
-    <div class="contact-layout">
-        <div class="contact-info">
-            <p class="section-label">Book a lesson</p>
-            <h2>Let's get started.</h2>
-            <p>Olympia, WA (in-person only)<br>kai@fiddlelessons.com</p>
-        </div>
-        <form onsubmit="handleSubmit(event)">
-            <div>
-                <label for="name">Your name</label>
-                <input type="text" id="name" required>
-            </div>
-            <div>
-                <label for="email">Email address</label>
-                <input type="email" id="email" required>
-            </div>
-            <button type="submit" class="btn">Send my enquiry</button>
-            <p id="form-success" style="display:none;color:var(--sage);margin-top:1rem;">Thanks! I'll be in touch soon.</p>
+    <div class="grid">
+        <h2>CONTACT</h2>
+        <form>
+            <input type="text" placeholder="NAME" required>
+            <input type="email" placeholder="EMAIL" required>
+            <select>
+                <option>BEGINNER</option>
+                <option>SOME EXPERIENCE</option>
+                <option>ADVANCED</option>
+            </select>
+            <textarea placeholder="WHAT ARE YOU DRAWN TO?"></textarea>
+            <button type="submit" class="btn">SEND MESSAGE</button>
         </form>
     </div>
 </section>
 
-<footer>
-    <p>&#9834; Kai · Fiddle Lessons · Olympia, WA · <a href="mailto:kai@fiddlelessons.com">kai@fiddlelessons.com</a></p>
+<footer style="padding: 1.5rem; font-weight: 900;">
+    OLYMPIA, WA // KAI@FIDDLELESSONS.COM
 </footer>
 
-<script>
-    function handleSubmit(e) {
-        e.preventDefault();
-        document.getElementById('form-success').style.display = 'block';
-        e.target.querySelector('button').disabled = true;
-        e.target.querySelector('button').style.opacity = '0.5';
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.lesson-card, .about-grid, .contact-layout').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(24px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-</script>
 </body>
 </html>
