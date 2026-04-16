@@ -40,5 +40,62 @@
         "end": 94.476
       }
     ]
+  },
+  {
+    "title": "Pig in a Pen",
+    "tags": [],
+    "audioSrc": "tunes/pig-in-a-pen/audio.mp3",
+    "speedOptions": [
+      0.5,
+      0.75,
+      1.0
+    ],
+    "sections": [
+      {
+        "label": "lick 1",
+        "start": 17.304,
+        "end": 23.662
+      },
+      {
+        "label": "lick 1.5",
+        "start": 23.662,
+        "end": 26.991
+      },
+      {
+        "label": "lick 3.1",
+        "start": 34.057,
+        "end": 36.998
+      },
+      {
+        "label": "lick 3.2",
+        "start": 37.018,
+        "end": 40.296
+      },
+      {
+        "label": "lick 3.3",
+        "start": 40.296,
+        "end": 43.601
+      },
+      {
+        "label": "lick 3.4 (classic arp ending)",
+        "start": 43.601,
+        "end": 49.972
+      },
+      {
+        "label": "lick 4 (fakeout)",
+        "start": 49.972,
+        "end": 56.362
+      },
+      {
+        "label": "lick 4.2",
+        "start": 56.362,
+        "end": 62.969
+      },
+      {
+        "label": "filler lick (classic and simple)",
+        "start": 62.969,
+        "end": 69.575
+      }
+    ]
   }
 ]
